@@ -50,3 +50,7 @@ int AStateMachinePractice::getWallet()
 	return CurState->getWallet(*this);
 }
 
+void UVirtualState::updateWallet(AStateMachinePractice& Prac, int Amt)
+{
+	Prac.TotalMoney = Amt;
+}

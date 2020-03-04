@@ -61,5 +61,9 @@ public:
 	virtual bool Spendable(AStateMachinePractice& Prac, int Amt) = 0;
 	virtual void Spend(AStateMachinePractice& Prac, int Amt) = 0;
 	virtual int getWallet(AStateMachinePractice& Prac) = 0;
+
+protected:
+	void setState(AStateMachinePractice& Prac, UVirtualState* vs);
+	void updateWallet(AStateMachinePractice& Prac, int Amt);
 };
 
