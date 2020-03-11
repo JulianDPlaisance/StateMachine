@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "BaseMachineInterface.h"
+#include "StatesHolder.h"
 #include "PlayerMachine.generated.h"
 
 /**
@@ -16,13 +17,14 @@ class VICTIMOFTHESTATE_API APlayerMachine : public APlayerController
 	GENERATED_BODY()
 
 public:
-	friend class BaseMachineInterface;
-	void InitState(BaseMachineInterface* State);
+	friend class ABaseMachineInterface;
+	void InitState(ABaseMachineInterface* State);
 
 protected:
-	BaseMachineInterface* Machine;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "State Machine", meta = (DisplayName = "Machineptr", AllowPrivateAccess = "true"))
+	ABaseMachineInterface* Machine;
 	
 public:
-	virtual BaseMachineInterface& GetCurrentState();
-	virtual void ChangeState(BaseMachineInterface* State);
+	virtual ABaseMachineInterface& GetCurrentState();
+	virtual void ChangeState(ABaseMachineInterface* State);
 };

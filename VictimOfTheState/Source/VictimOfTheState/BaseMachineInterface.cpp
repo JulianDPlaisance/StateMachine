@@ -3,33 +3,40 @@
 
 #include "BaseMachineInterface.h"
 
-BaseMachineInterface::BaseMachineInterface()
+ABaseMachineInterface::ABaseMachineInterface()
 {
-	(*CurState) = nullptr;
-	Name = "";
+	//(*CurState) = nullptr;
+	//(*CurState)->Name = nullptr;
+	//(*CurState)->State = nullptr;
 }
 
-BaseMachineInterface::BaseMachineInterface(BaseMachineInterface* Machine)
+ABaseMachineInterface::ABaseMachineInterface(ABaseMachineInterface* Machine)
 {
-	(*CurState) = Machine;
-	Name = Machine->Name;
+	(*CurState)->State = Machine;
+	(*CurState)->Name = Machine->GetName(*Machine);
 }
 
-BaseMachineInterface::~BaseMachineInterface()
+ABaseMachineInterface::~ABaseMachineInterface()
 {
+
 }
 
-void BaseMachineInterface::BeginState(BaseMachineInterface& Machine)
+void ABaseMachineInterface::BeginState(ABaseMachineInterface& Machine)
 {
-	(*CurState)->BeginState(*this);
+	(*CurState)->State->BeginState(*this);
 }
 
-void BaseMachineInterface::ProcessState(BaseMachineInterface& Machine)
+void ABaseMachineInterface::ProcessState(ABaseMachineInterface& Machine)
 {
-	(*CurState)->ProcessState(*this);
+	(*CurState)->State->ProcessState(*this);
 }
 
-void BaseMachineInterface::EndState(BaseMachineInterface& Machine)
+void ABaseMachineInterface::EndState(ABaseMachineInterface& Machine)
 {
-	(*CurState)->EndState(*this);
+	(*CurState)->State->EndState(*this);
+}
+
+FString ABaseMachineInterface::GetName(ABaseMachineInterface& Machine)
+{
+	return (*CurState)->State->GetName(*this);
 }

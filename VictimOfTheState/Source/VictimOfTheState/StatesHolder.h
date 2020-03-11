@@ -15,11 +15,12 @@ public:
 	~StatesHolder();
 };
 
-class Flying : public BaseMachineInterface
+class Flying : public ABaseMachineInterface
 {
 public:
 	Flying();
 	virtual ~Flying();
+	FString GetName(ABaseMachineInterface& Machine) override;
 };
 
 

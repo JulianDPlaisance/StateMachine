@@ -13,10 +13,14 @@ StatesHolder::~StatesHolder()
 
 Flying::Flying()
 {
-	Name = "Flying";
-	BaseMachineInterface(this);
+	ABaseMachineInterface(this);
 }
 
 Flying::~Flying()
 {
+}
+
+FString Flying::GetName(ABaseMachineInterface& Machine)
+{
+	return "Flying";
 }

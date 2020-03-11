@@ -3,18 +3,18 @@
 
 #include "PlayerMachine.h"
 
-void APlayerMachine::InitState(BaseMachineInterface* State)
+void APlayerMachine::InitState(ABaseMachineInterface* State)
 {
-	Machine = State;
+	//Machine = &Flying();
 	Machine->BeginState(*Machine);
 }
 
-BaseMachineInterface& APlayerMachine::GetCurrentState()
+ABaseMachineInterface& APlayerMachine::GetCurrentState()
 {
 	return *Machine;
 }
 
-void APlayerMachine::ChangeState(BaseMachineInterface* State)
+void APlayerMachine::ChangeState(ABaseMachineInterface* State)
 {
 	Machine->EndState(*Machine);
 	Machine = State;

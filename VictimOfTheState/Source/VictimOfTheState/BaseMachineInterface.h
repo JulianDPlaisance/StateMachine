@@ -3,23 +3,35 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameFramework/PlayerController.h"
 #include <memory>
+#include "BaseMachineInterface.generated.h"
 /**
  * 
  */
-class VICTIMOFTHESTATE_API BaseMachineInterface
+struct Interface;
+
+UCLASS()
+class VICTIMOFTHESTATE_API ABaseMachineInterface : public APlayerController
 {
+	GENERATED_BODY()
 
 public:
-	TSharedPtr<BaseMachineInterface*> CurState;
-	BaseMachineInterface();
-	BaseMachineInterface(BaseMachineInterface* Machine);
-	virtual ~BaseMachineInterface();
-	FString Name;
+	TUniquePtr<Interface*> CurState;
+	ABaseMachineInterface();
+	ABaseMachineInterface(ABaseMachineInterface* Machine);
+	virtual ~ABaseMachineInterface();
 
-	virtual void BeginState(BaseMachineInterface& Machine);
-	virtual void ProcessState(BaseMachineInterface& Machine);
-	virtual void EndState(BaseMachineInterface& Machine);
+	virtual void BeginState(ABaseMachineInterface& Machine);
+	virtual void ProcessState(ABaseMachineInterface& Machine);
+	virtual void EndState(ABaseMachineInterface& Machine);
+	virtual FString GetName(ABaseMachineInterface& Machine);
 
 	
+};
+
+struct Interface
+{
+	FString Name;
+	ABaseMachineInterface* State;
 };
