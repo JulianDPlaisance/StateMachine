@@ -17,6 +17,7 @@ class VICTIMOFTHESTATE_API APlayerMachine : public APlayerController
 	GENERATED_BODY()
 
 public:
+	APlayerMachine();
 	friend class ABaseMachineInterface;
 	void InitState(ABaseMachineInterface* State);
 

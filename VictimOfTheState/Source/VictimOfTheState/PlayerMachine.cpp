@@ -3,6 +3,11 @@
 
 #include "PlayerMachine.h"
 
+APlayerMachine::APlayerMachine()
+{
+	Machine =  NewObject<Flying>();
+}
+
 void APlayerMachine::InitState(ABaseMachineInterface* State)
 {
 	//Machine = &Flying();
