@@ -24,3 +24,16 @@ FString Flying::GetName(ABaseMachineInterface& Machine)
 {
 	return "Flying";
 }
+
+Walking::Walking()
+{
+}
+
+Walking::~Walking()
+{
+}
+
+FString Walking::GetName(ABaseMachineInterface& Machine)
+{
+	return "Walking";
+}

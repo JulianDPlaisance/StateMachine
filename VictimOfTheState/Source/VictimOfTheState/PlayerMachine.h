@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "BaseMachineInterface.h"
 #include "StatesHolder.h"
+#include <memory>
 #include "PlayerMachine.generated.h"
 
 /**
@@ -19,13 +20,20 @@ class VICTIMOFTHESTATE_API APlayerMachine : public APlayerController
 public:
 	APlayerMachine();
 	friend class ABaseMachineInterface;
+	UFUNCTION(BlueprintCallable, Category = "State Machine")
 	void InitState(ABaseMachineInterface* State);
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "State Machine", meta = (DisplayName = "Machineptr", AllowPrivateAccess = "true"))
 	ABaseMachineInterface* Machine;
 	
+	
 public:
-	virtual ABaseMachineInterface& GetCurrentState();
-	virtual void ChangeState(ABaseMachineInterface* State);
+	UFUNCTION(BlueprintCallable, Category = "State Machine")
+	ABaseMachineInterface* GetCurrentState();
+	UFUNCTION(BlueprintCallable, Category = "State Machine")
+	void ChangeState(ABaseMachineInterface* State);
+	UFUNCTION(BlueprintCallable, Category = "State Machine")
+	FString GetName();
+	
 };

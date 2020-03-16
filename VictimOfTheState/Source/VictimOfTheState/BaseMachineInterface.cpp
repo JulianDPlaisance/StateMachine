@@ -23,20 +23,26 @@ ABaseMachineInterface::~ABaseMachineInterface()
 
 void ABaseMachineInterface::BeginState(ABaseMachineInterface& Machine)
 {
-	(*CurState)->State->BeginState(*this);
+	if(CurState != nullptr)
+		(*CurState)->State->BeginState(*this);
 }
 
 void ABaseMachineInterface::ProcessState(ABaseMachineInterface& Machine)
 {
-	(*CurState)->State->ProcessState(*this);
+	if(CurState != nullptr)
+		(*CurState)->State->ProcessState(*this);
 }
 
 void ABaseMachineInterface::EndState(ABaseMachineInterface& Machine)
 {
-	(*CurState)->State->EndState(*this);
+	if(CurState != nullptr)
+		(*CurState)->State->EndState(*this);
 }
 
 FString ABaseMachineInterface::GetName(ABaseMachineInterface& Machine)
 {
-	return (*CurState)->State->GetName(*this);
+	if (CurState != nullptr)
+		return (*CurState)->State->GetName(*this);
+	else
+		return "null";;
 }

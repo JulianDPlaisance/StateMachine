@@ -5,18 +5,18 @@
 
 APlayerMachine::APlayerMachine()
 {
-	Machine =  NewObject<Flying>();
+	Machine = NewObject<Flying>();
 }
 
 void APlayerMachine::InitState(ABaseMachineInterface* State)
 {
-	//Machine = &Flying();
-	Machine->BeginState(*Machine);
+	Machine = NewObject<Flying>();
+	//Machine->BeginState(*Machine);
 }
 
-ABaseMachineInterface& APlayerMachine::GetCurrentState()
+ABaseMachineInterface* APlayerMachine::GetCurrentState()
 {
-	return *Machine;
+	return Machine;
 }
 
 void APlayerMachine::ChangeState(ABaseMachineInterface* State)
@@ -24,4 +24,12 @@ void APlayerMachine::ChangeState(ABaseMachineInterface* State)
 	Machine->EndState(*Machine);
 	Machine = State;
 	Machine->BeginState(*Machine);
+}
+
+FString APlayerMachine::GetName()
+{
+	if (Machine != nullptr)
+		return Machine->GetName(*Machine);
+	else
+		return "NULL";
 }

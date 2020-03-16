@@ -23,5 +23,13 @@ public:
 	FString GetName(ABaseMachineInterface& Machine) override;
 };
 
+class Walking : public ABaseMachineInterface
+{
+public:
+	Walking();
+	virtual ~Walking();
+	FString GetName(ABaseMachineInterface& Machine) override;
+};
+
 
 
