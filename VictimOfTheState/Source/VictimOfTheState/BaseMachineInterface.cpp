@@ -44,5 +44,5 @@ FString ABaseMachineInterface::GetName(ABaseMachineInterface& Machine)
 	if (CurState != nullptr)
 		return (*CurState)->State->GetName(*this);
 	else
-		return "null";;
+		return "BaseMachineInterface";
 }

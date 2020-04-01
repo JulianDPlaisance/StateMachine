@@ -31,5 +31,5 @@ FString APlayerMachine::GetName()
 	if (Machine != nullptr)
 		return Machine->GetName(*Machine);
 	else
-		return "NULL";
+		return "nullptr";
 }

@@ -30,10 +30,11 @@ protected:
 	
 public:
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
-	ABaseMachineInterface* GetCurrentState();
+		ABaseMachineInterface* GetCurrentState();
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
-	void ChangeState(ABaseMachineInterface* State);
+		void ChangeState(ABaseMachineInterface* State);
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
-	FString GetName();
-	
+		FString GetName();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "State Machine", meta = (DisplayName = "MachineNAME", AllowPrivateAccess = "true"))
+		FString name = "Signore";
 };
