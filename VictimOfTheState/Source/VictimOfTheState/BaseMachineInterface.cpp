@@ -12,10 +12,18 @@ ABaseMachineInterface::ABaseMachineInterface()
 
 ABaseMachineInterface::ABaseMachineInterface(ABaseMachineInterface* Machine)
 {
-	(*CurState)->State = Machine;
-	(*CurState)->Name = Machine->GetName(*Machine);
+	if (Machine == nullptr){ UE_LOG(LogTemp, Warning, TEXT("BaseMachineInterace Machine Nullptr")); }
+	else
+	{
+		(*CurState)->State = Machine;
+		(*CurState)->Name = Machine->GetName(*Machine);
+	}
 }
 
+void SetMachineRef(ABaseMachineInterface* Machine)
+{
+
+}
 ABaseMachineInterface::~ABaseMachineInterface()
 {
 

@@ -14,6 +14,13 @@ StatesHolder::~StatesHolder()
 Flying::Flying()
 {
 	ABaseMachineInterface(this);
+	UE_LOG(LogTemp, Warning, TEXT("Construct Flying NEVER RUNS!"));
+}
+
+void Flying::GetReference()
+{
+	//ABaseMachineInterface(this);
+	UE_LOG(LogTemp, Warning, TEXT("Construct Flying"));
 }
 
 Flying::~Flying()

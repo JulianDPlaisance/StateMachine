@@ -21,6 +21,7 @@ public:
 	Flying();
 	virtual ~Flying();
 	FString GetName(ABaseMachineInterface& Machine) override;
+	void GetReference();
 };
 
 class Walking : public ABaseMachineInterface

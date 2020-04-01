@@ -27,6 +27,8 @@ public:
 	virtual void EndState(ABaseMachineInterface& Machine);
 	virtual FString GetName(ABaseMachineInterface& Machine);
 
+	void SetMachineRef(ABaseMachineInterface* Machine);
+
 	
 };
 

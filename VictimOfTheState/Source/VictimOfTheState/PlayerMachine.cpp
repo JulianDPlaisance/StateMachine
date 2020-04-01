@@ -10,8 +10,20 @@ APlayerMachine::APlayerMachine()
 
 void APlayerMachine::InitState(ABaseMachineInterface* State)
 {
+	UE_LOG(LogTemp, Warning, TEXT("Construct <Flying>"));
 	Machine = NewObject<Flying>();
-	Machine->BeginState(*Machine);
+
+	if (Machine != nullptr)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Flying succesfully constructed"));
+		Flying* flying = Cast<Flying>(Machine);
+		flying->GetReference();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Not constructed"));
+	}
+	//Machine->BeginState(*Machine);
 }
 
 ABaseMachineInterface* APlayerMachine::GetCurrentState()
