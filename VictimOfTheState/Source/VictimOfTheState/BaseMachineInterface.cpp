@@ -23,8 +23,10 @@ ABaseMachineInterface::~ABaseMachineInterface()
 
 void ABaseMachineInterface::BeginState(ABaseMachineInterface& Machine)
 {
-	if(CurState != nullptr)
+	if (CurState != nullptr)
+	{
 		(*CurState)->State->BeginState(*this);
+	}
 }
 
 void ABaseMachineInterface::ProcessState(ABaseMachineInterface& Machine)

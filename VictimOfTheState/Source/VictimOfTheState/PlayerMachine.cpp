@@ -11,7 +11,7 @@ APlayerMachine::APlayerMachine()
 void APlayerMachine::InitState(ABaseMachineInterface* State)
 {
 	Machine = NewObject<Flying>();
-	//Machine->BeginState(*Machine);
+	Machine->BeginState(*Machine);
 }
 
 ABaseMachineInterface* APlayerMachine::GetCurrentState()
