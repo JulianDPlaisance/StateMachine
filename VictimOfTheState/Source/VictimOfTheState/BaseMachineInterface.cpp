@@ -12,12 +12,7 @@ ABaseMachineInterface::ABaseMachineInterface()
 
 ABaseMachineInterface::ABaseMachineInterface(ABaseMachineInterface* Machine)
 {
-	if (Machine == nullptr){ UE_LOG(LogTemp, Warning, TEXT("BaseMachineInterace Machine Nullptr")); }
-	else
-	{
-		(*CurState)->State = Machine;
-		(*CurState)->Name = Machine->GetName(*Machine);
-	}
+	//Name = Machine->GetName();
 }
 
 void SetMachineRef(ABaseMachineInterface* Machine)
@@ -31,28 +26,29 @@ ABaseMachineInterface::~ABaseMachineInterface()
 
 void ABaseMachineInterface::BeginState(ABaseMachineInterface& Machine)
 {
-	if (CurState != nullptr)
+	/*if (CurState != nullptr)
 	{
 		(*CurState)->State->BeginState(*this);
-	}
+	}*/
 }
 
 void ABaseMachineInterface::ProcessState(ABaseMachineInterface& Machine)
 {
-	if(CurState != nullptr)
-		(*CurState)->State->ProcessState(*this);
+	/*if(CurState != nullptr)
+		(*CurState)->State->ProcessState(*this);*/
 }
 
 void ABaseMachineInterface::EndState(ABaseMachineInterface& Machine)
 {
-	if(CurState != nullptr)
-		(*CurState)->State->EndState(*this);
+	/*if(CurState != nullptr)
+		(*CurState)->State->EndState(*this);*/
 }
 
-FString ABaseMachineInterface::GetName(ABaseMachineInterface& Machine)
+FString ABaseMachineInterface::GetName(/*ABaseMachineInterface& Machine*/)
 {
-	if (CurState != nullptr)
+	/*if (CurState != nullptr)
 		return (*CurState)->State->GetName(*this);
 	else
-		return "BaseMachineInterface";
+		return "BaseMachineInterface";*/
+	return "BaseMachineInterface";
 }

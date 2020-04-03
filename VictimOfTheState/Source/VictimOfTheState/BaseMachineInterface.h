@@ -9,7 +9,7 @@
 /**
  * 
  */
-struct Interface;
+//struct Interface;
 
 UCLASS()
 class VICTIMOFTHESTATE_API ABaseMachineInterface : public APlayerController
@@ -17,7 +17,7 @@ class VICTIMOFTHESTATE_API ABaseMachineInterface : public APlayerController
 	GENERATED_BODY()
 
 public:
-	TUniquePtr<Interface*> CurState;
+	FString Name;
 	ABaseMachineInterface();
 	ABaseMachineInterface(ABaseMachineInterface* Machine);
 	virtual ~ABaseMachineInterface();
@@ -25,15 +25,15 @@ public:
 	virtual void BeginState(ABaseMachineInterface& Machine);
 	virtual void ProcessState(ABaseMachineInterface& Machine);
 	virtual void EndState(ABaseMachineInterface& Machine);
-	virtual FString GetName(ABaseMachineInterface& Machine);
+	virtual FString GetName(/*ABaseMachineInterface& Machine*/);
 
 	void SetMachineRef(ABaseMachineInterface* Machine);
 
 	
 };
 
-struct Interface
-{
-	FString Name;
-	ABaseMachineInterface* State;
-};
+//struct Interface
+//{
+//	FString Name;
+//	ABaseMachineInterface* State;
+//};

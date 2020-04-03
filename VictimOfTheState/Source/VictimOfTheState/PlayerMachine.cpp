@@ -5,14 +5,14 @@
 
 APlayerMachine::APlayerMachine()
 {
-	Machine = NewObject<Flying>();
+	Machine = NewObject<ABaseMachineInterface>();
 }
 
 void APlayerMachine::InitState(ABaseMachineInterface* State)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Construct <Flying>"));
 	Machine = NewObject<Flying>();
-
+	
 	if (Machine != nullptr)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Flying succesfully constructed"));
@@ -23,6 +23,7 @@ void APlayerMachine::InitState(ABaseMachineInterface* State)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Not constructed"));
 	}
+	/**/
 	//Machine->BeginState(*Machine);
 }
 
@@ -41,7 +42,7 @@ void APlayerMachine::ChangeState(ABaseMachineInterface* State)
 FString APlayerMachine::GetName()
 {
 	if (Machine != nullptr)
-		return Machine->GetName(*Machine);
+		return Machine->GetName();
 	else
 		return "nullptr";
 }

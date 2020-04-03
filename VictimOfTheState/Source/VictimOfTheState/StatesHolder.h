@@ -20,7 +20,7 @@ class Flying : public ABaseMachineInterface
 public:
 	Flying();
 	virtual ~Flying();
-	FString GetName(ABaseMachineInterface& Machine) override;
+	FString GetName(/*ABaseMachineInterface& Machine*/);
 	void GetReference();
 };
 
@@ -29,7 +29,7 @@ class Walking : public ABaseMachineInterface
 public:
 	Walking();
 	virtual ~Walking();
-	FString GetName(ABaseMachineInterface& Machine) override;
+	FString GetName();
 };
 
 

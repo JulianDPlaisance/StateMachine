@@ -35,6 +35,4 @@ public:
 		void ChangeState(ABaseMachineInterface* State);
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
 		FString GetName();
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "State Machine", meta = (DisplayName = "MachineNAME", AllowPrivateAccess = "true"))
-		FString name = "Signore";
 };

@@ -13,7 +13,7 @@ StatesHolder::~StatesHolder()
 
 Flying::Flying()
 {
-	ABaseMachineInterface(this);
+	Name = "Flying";
 	UE_LOG(LogTemp, Warning, TEXT("Construct Flying NEVER RUNS!"));
 }
 
@@ -27,7 +27,7 @@ Flying::~Flying()
 {
 }
 
-FString Flying::GetName(ABaseMachineInterface& Machine)
+FString Flying::GetName(/*ABaseMachineInterface& Machine*/)
 {
 	return "Flying";
 }
@@ -40,7 +40,7 @@ Walking::~Walking()
 {
 }
 
-FString Walking::GetName(ABaseMachineInterface& Machine)
+FString Walking::GetName()
 {
 	return "Walking";
 }
