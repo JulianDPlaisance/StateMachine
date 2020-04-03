@@ -27,8 +27,9 @@ Flying::~Flying()
 {
 }
 
-FString Flying::GetName(/*ABaseMachineInterface& Machine*/)
+FString Flying::GetName()
 {
+	UE_LOG(LogTemp, Warning, TEXT("Flying VIRTUAL FUNCTION RAN!"));
 	return "Flying";
 }
 

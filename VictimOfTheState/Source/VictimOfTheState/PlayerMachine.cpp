@@ -17,7 +17,7 @@ void APlayerMachine::InitState(ABaseMachineInterface* State)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Flying succesfully constructed"));
 		Flying* flying = Cast<Flying>(Machine);
-		flying->GetReference();
+		flying->GetName();
 	}
 	else
 	{
@@ -42,7 +42,11 @@ void APlayerMachine::ChangeState(ABaseMachineInterface* State)
 FString APlayerMachine::GetName()
 {
 	if (Machine != nullptr)
+	{
 		return Machine->GetName();
+	}
 	else
+	{
 		return "nullptr";
+	}
 }

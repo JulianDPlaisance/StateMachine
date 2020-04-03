@@ -20,7 +20,7 @@ class Flying : public ABaseMachineInterface
 public:
 	Flying();
 	virtual ~Flying();
-	FString GetName(/*ABaseMachineInterface& Machine*/);
+	FString GetName();
 	void GetReference();
 };
 

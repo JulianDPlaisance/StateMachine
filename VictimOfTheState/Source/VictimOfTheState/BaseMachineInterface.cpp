@@ -44,11 +44,12 @@ void ABaseMachineInterface::EndState(ABaseMachineInterface& Machine)
 		(*CurState)->State->EndState(*this);*/
 }
 
-FString ABaseMachineInterface::GetName(/*ABaseMachineInterface& Machine*/)
+FString ABaseMachineInterface::GetName()
 {
 	/*if (CurState != nullptr)
 		return (*CurState)->State->GetName(*this);
 	else
 		return "BaseMachineInterface";*/
+	UE_LOG(LogTemp, Warning, TEXT("BASE VIRUTAL FUNCTION RAN!"));
 	return "BaseMachineInterface";
 }
