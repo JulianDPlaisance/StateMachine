@@ -2,7 +2,9 @@
 
 
 #include "FiniteStateMachine.h"
+#include "Walking.h"
 #include "EatingState.h"
+#include "FlyingState.h"
 //class UEatingState;
 
 // Sets default values for this component's properties
@@ -29,14 +31,35 @@ void UFiniteStateMachine::InitState()
 	State->Begin(this);
 }
 
-//void UFiniteStateMachine::ChangeState()
-//{
-	//State->End();
-	//UEatingState* St = NewObject<UEatingState>(this, TEXT("EatingState"));
-	//State = Cast<UStateObject>(St);
-	//State->LinkFSM(this);
-	//State->Begin();
-//}
+void UFiniteStateMachine::ChangeState()
+{
+	State->End(this);
+	UFlyingState* St = NewObject<UFlyingState>(this, TEXT("FlyingState"));
+	State = Cast<UStateObject>(St);
+	//State->UFlyingState::FSM_Init(this);
+	State->Begin(this);
+	State->Execute(this);
+}
+
+void UFiniteStateMachine::Set_ChangeState(StateEnum SE)
+{
+	State->End(this);
+	switch (SE)
+	{
+	case StateEnum::EATING:
+		State = Cast<UStateObject>(NewObject<UEatingState>(this, TEXT("EatingState")));
+		break;
+	case StateEnum::FLYING:
+		State = Cast<UStateObject>(NewObject<UFlyingState>(this, TEXT("FlyingState")));
+		break;
+	case StateEnum::WALKING:
+		State = Cast<UStateObject>(NewObject<UWalking>(this, TEXT("WalkingState")));
+		break;
+	}
+	//State = Cast<UStateObject>(StO);
+	State->Begin(this);
+	State->Execute(this);
+}
 
 // Called when the game starts
 void UFiniteStateMachine::BeginPlay()

@@ -12,22 +12,22 @@
 //struct Interface;
 
 UCLASS()
-class VICTIMOFTHESTATE_API ABaseMachineInterface : public APlayerController
+class VICTIMOFTHESTATE_API UBaseMachineInterface : public UObject
 {
 	GENERATED_BODY()
 
 public:
 	FString Name;
-	ABaseMachineInterface();
-	ABaseMachineInterface(ABaseMachineInterface* Machine);
-	virtual ~ABaseMachineInterface();
+	UBaseMachineInterface();
+	UBaseMachineInterface(UBaseMachineInterface* Machine);
+	virtual ~UBaseMachineInterface();
 
-	virtual void BeginState(ABaseMachineInterface& Machine);
-	virtual void ProcessState(ABaseMachineInterface& Machine);
-	virtual void EndState(ABaseMachineInterface& Machine);
+	virtual void BeginState(UBaseMachineInterface& Machine);
+	virtual void ProcessState(UBaseMachineInterface& Machine);
+	virtual void EndState(UBaseMachineInterface& Machine);
 	virtual FString GetName();
 
-	void SetMachineRef(ABaseMachineInterface* Machine);
+	void SetMachineRef(UBaseMachineInterface* Machine);
 
 	
 };

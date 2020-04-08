@@ -12,6 +12,20 @@
 /**
  * 
  */
+
+class Argm : public UObject
+{
+public:
+	virtual void printt() { UE_LOG(LogTemp, Warning, TEXT("AAAAAAA")); }
+};
+
+class B : public Argm
+{
+public:
+	virtual void printt() { UE_LOG(LogTemp, Warning, TEXT("BBBBBBBBBBBBBBBBBBBBBBB")); }
+};
+
+
 UCLASS()
 class VICTIMOFTHESTATE_API APlayerMachine : public APlayerController
 {
@@ -19,20 +33,22 @@ class VICTIMOFTHESTATE_API APlayerMachine : public APlayerController
 
 public:
 	APlayerMachine();
-	friend class ABaseMachineInterface;
+	friend class UBaseMachineInterface;
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
-	void InitState(ABaseMachineInterface* State);
+	void InitState(UBaseMachineInterface* State);
 
 protected:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "State Machine", meta = (DisplayName = "Machineptr", AllowPrivateAccess = "true"))
-	ABaseMachineInterface* Machine;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "State Machine", meta = (DisplayName = "Machineptr", AllowPrivateAccess = "true"))
+	UBaseMachineInterface* Machine;
 	
 	
 public:
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
-		ABaseMachineInterface* GetCurrentState();
+		UBaseMachineInterface* GetCurrentState();
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
-		void ChangeState(ABaseMachineInterface* State);
+		void ChangeState(UBaseMachineInterface* State);
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
 		FString GetName();
+	UFUNCTION(BlueprintCallable, Category = "State Machine")
+		UBaseMachineInterface* GetMachine() { return Machine; }
 };

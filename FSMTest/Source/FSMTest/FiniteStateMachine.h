@@ -6,6 +6,15 @@
 #include "Components/ActorComponent.h"
 #include "FiniteStateMachine.generated.h"
 
+UENUM()
+enum class StateEnum : uint8
+{
+	NONE		= 0x00,
+	EATING		= 0x01,
+	FLYING		= 0x02,
+	WALKING		= 0x04,
+};
+
 class UStateObject;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -23,8 +32,11 @@ public:
 	void InitState();
 
 	// Changes states by running End() of old state and Begin() of new state
-	//UFUNCTION(BlueprintCallable, Category = "State Machine")
-	//void ChangeState();
+	UFUNCTION(BlueprintCallable, Category = "State Machine", meta=(DisplayName="ChangeState"))
+	void ChangeState();
+
+	UFUNCTION(BlueprintCallable, Category = "State Machine", meta=(DisplayName="UChangeState"))
+	void Set_ChangeState(StateEnum SE);
 
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
 	void SetMessage(FText Mess) { Message = Mess; }

@@ -5,13 +5,13 @@
 
 APlayerMachine::APlayerMachine()
 {
-	Machine = NewObject<ABaseMachineInterface>();
+	Machine = NewObject<UBaseMachineInterface>();
 }
 
-void APlayerMachine::InitState(ABaseMachineInterface* State)
+void APlayerMachine::InitState(UBaseMachineInterface* State)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Construct <Flying>"));
-	Machine = NewObject<Flying>();
+	//Machine = NewObject<Flying>();
 	
 	if (Machine != nullptr)
 	{
@@ -27,12 +27,12 @@ void APlayerMachine::InitState(ABaseMachineInterface* State)
 	//Machine->BeginState(*Machine);
 }
 
-ABaseMachineInterface* APlayerMachine::GetCurrentState()
+UBaseMachineInterface* APlayerMachine::GetCurrentState()
 {
 	return Machine;
 }
 
-void APlayerMachine::ChangeState(ABaseMachineInterface* State)
+void APlayerMachine::ChangeState(UBaseMachineInterface* State)
 {
 	Machine->EndState(*Machine);
 	Machine = State;
@@ -41,6 +41,8 @@ void APlayerMachine::ChangeState(ABaseMachineInterface* State)
 
 FString APlayerMachine::GetName()
 {
+	Argm* bleh = NewObject<B>();
+	bleh->printt();
 	if (Machine != nullptr)
 	{
 		return Machine->GetName();

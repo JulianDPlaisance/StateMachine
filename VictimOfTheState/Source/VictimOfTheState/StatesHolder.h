@@ -15,7 +15,7 @@ public:
 	~StatesHolder();
 };
 
-class Flying : public ABaseMachineInterface
+class Flying : public UBaseMachineInterface
 {
 public:
 	Flying();
@@ -24,7 +24,7 @@ public:
 	void GetReference();
 };
 
-class Walking : public ABaseMachineInterface
+class Walking : public UBaseMachineInterface
 {
 public:
 	Walking();
