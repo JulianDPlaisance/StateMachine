@@ -18,13 +18,31 @@ public:
 	UFiniteStateMachine();
 
 	// Switches state without using an END state, used when running a state for the first time
-	//template <class T>
+
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
-	void InitState();
+	template <class T>
+	void InitStatez()
+	{
+		State = T::FSM_Init(this);
+		//class UEatingState;
+		//UEatingState* St = NewObject<UEatingState>(this, TEXT("EatingState"));
+		//State = Cast<UStateObject>(St);
+		//State->LinkFSM(this);
+		State->Begin(this);
+	}
 
 	// Changes states by running End() of old state and Begin() of new state
-	//UFUNCTION(BlueprintCallable, Category = "State Machine")
-	//void ChangeState();
+
+	UFUNCTION(BlueprintCallable, Category = "State Machine")
+	template<class T>
+	void ChangeState()
+	{
+		State->End();
+		T* St = NewObject<T>(this, TEXT("EatingState"));
+		State = Cast<UStateObject>(St);
+		State->LinkFSM(this);
+		State->Begin();
+	}
 
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
 	void SetMessage(FText Mess) { Message = Mess; }

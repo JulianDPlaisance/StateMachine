@@ -19,30 +19,12 @@ UFiniteStateMachine::UFiniteStateMachine()
 }
 
 
-void UFiniteStateMachine::InitState()
-{
-	State = UEatingState::FSM_Init(this);
-	//class UEatingState;
-	//UEatingState* St = NewObject<UEatingState>(this, TEXT("EatingState"));
-	//State = Cast<UStateObject>(St);
-	//State->LinkFSM(this);
-	State->Begin(this);
-}
-
-//void UFiniteStateMachine::ChangeState()
-//{
-	//State->End();
-	//UEatingState* St = NewObject<UEatingState>(this, TEXT("EatingState"));
-	//State = Cast<UStateObject>(St);
-	//State->LinkFSM(this);
-	//State->Begin();
-//}
 
 // Called when the game starts
 void UFiniteStateMachine::BeginPlay()
 {
 	Super::BeginPlay();
-	InitState();
+	InitStatez<UEatingState>();
 	// ...
 	
 }
