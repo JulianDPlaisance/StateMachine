@@ -3,7 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "BaseState.h"
+#include "EatingState.h"
+#include "HungryState.h"
 #include "Components/ActorComponent.h"
 #include "StateMachine.generated.h"
 
@@ -17,7 +18,12 @@ class MYPROJECT_API UStateMachine : public UActorComponent
 
 public:
     UStateMachine() {};
-    void ChangeState();
+    UFUNCTION(BlueprintCallable, Category = "State Machine")
+        void ChangeState();
+    UFUNCTION(BlueprintCallable, Category = "State Machine")
+        FString GetStateName();
+
+
 protected:
 
 private:

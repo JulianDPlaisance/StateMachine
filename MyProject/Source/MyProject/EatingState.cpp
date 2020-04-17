@@ -3,3 +3,17 @@
 
 #include "EatingState.h"
 
+void UEatingState::Begin()
+{
+
+}
+
+void UEatingState::Execute()
+{
+
+}
+
+void UEatingState::End()
+{
+
+}

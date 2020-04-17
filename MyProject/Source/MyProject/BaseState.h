@@ -15,13 +15,13 @@ class MYPROJECT_API UBaseState : public UObject
 	GENERATED_BODY()
         
 public:
-    UBaseState();
-
-    virtual ~UBaseState() {};
-    /*virtual void Begin() {};
-    virtual void Execute() {};
-    virtual void End() {};
+    UBaseState() {}
+    virtual ~UBaseState() {}
+    virtual void Begin() {}
+    virtual void Execute() {}
+    virtual void End() {}
+    virtual FString GetName() { return "Virtual"; }
 
 private:
-    FString Name;*/
+    //FString Name = "Virtual";
 };
