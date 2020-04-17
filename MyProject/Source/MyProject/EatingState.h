@@ -9,6 +9,7 @@
 /**
  * 
  */
+/**/
 UCLASS()
 class MYPROJECT_API UEatingState : public UBaseState
 {

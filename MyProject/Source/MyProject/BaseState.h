@@ -15,7 +15,9 @@ class MYPROJECT_API UBaseState : public UObject
 	GENERATED_BODY()
         
 public:
-    UBaseState() {};
+    UBaseState();
+
+    virtual ~UBaseState() {};
     /*virtual void Begin() {};
     virtual void Execute() {};
     virtual void End() {};

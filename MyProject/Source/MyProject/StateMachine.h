@@ -21,5 +21,5 @@ public:
 protected:
 
 private:
-    UBaseState state;
+    UBaseState* state;
 };

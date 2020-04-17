@@ -3,3 +3,7 @@
 
 #include "BaseState.h"
 
+UBaseState::UBaseState()
+{
+	// Do nothing
+}
