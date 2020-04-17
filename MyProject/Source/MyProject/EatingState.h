@@ -15,5 +15,14 @@ class MYPROJECT_API UEatingState : public UBaseState
 	GENERATED_BODY()
 	
 public:
-	UEatingState() {};
+	UEatingState() {}
+	virtual ~UEatingState() {}
+	virtual void Begin();
+	virtual void Execute();
+	virtual void End();
+	virtual FString GetName() { return "Eating"; }
+
+private:
+	//Name = "Eating";
+	//Super::Name = "Eating";
 };
