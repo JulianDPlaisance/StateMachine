@@ -18,12 +18,22 @@ class MYPROJECT_API UStateMachine : public UActorComponent
 
 public:
     UStateMachine() {};
+
+    template < class StateForm >
     UFUNCTION(BlueprintCallable, Category = "State Machine")
-        void ChangeState();
+        FORCEINLINE void ChangeState(StateForm T)
+    {
+        if (TSubclassOf<UBaseState>() && T != nullptr)
+        {
+            state = T;
+        }
+    }
     UFUNCTION(BlueprintCallable, Category = "State Machine")
         FString GetStateName();
 
-
+    UFUNCTION(BlueprintCallable, Category = "State Machine")
+        void SwitchState();
+    
 protected:
 
 private:

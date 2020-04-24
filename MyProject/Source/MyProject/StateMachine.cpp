@@ -3,24 +3,6 @@
 
 #include "StateMachine.h"
 
-void UStateMachine::ChangeState()
-{
-	//state.End();
-	if (state == nullptr)
-	{
-		state = NewObject<UEatingState>();
-	}
-	else if (state->GetName() == "Eating")
-	{
-		state = NewObject<UHungryState>();
-	}
-	else if (state->GetName() == "Hungry")
-	{
-		state = NewObject<UEatingState>();
-	}
-
-}
-
 
 FString UStateMachine::GetStateName()
 {
@@ -28,4 +10,9 @@ FString UStateMachine::GetStateName()
 		return state->GetName();
 	else
 		return "Nullptr";
+}
+
+void UStateMachine::SwitchState()
+{
+	ChangeState(NewObject<UEatingState>());
 }
