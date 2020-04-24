@@ -2,6 +2,7 @@
 
 
 #include "FiniteStateMachine.h"
+#include "SleepingState.h"
 #include "EatingState.h"
 //class UEatingState;
 
@@ -24,7 +25,7 @@ UFiniteStateMachine::UFiniteStateMachine()
 void UFiniteStateMachine::BeginPlay()
 {
 	Super::BeginPlay();
-	InitStatez<UEatingState>();
+	InitStatez<USleepingState>();
 	// ...
 	
 }
@@ -34,7 +35,11 @@ void UFiniteStateMachine::BeginPlay()
 void UFiniteStateMachine::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
+//	if (GetWorld()->GetTimeSeconds() > 2 && GetWorld()->GetTimeSeconds() < 3)
+	//{
+		//ChangeState<UEatingState>();
+	//}
 	// ...
+//	UE_LOG(LogTemp, Warning, TEXT("Time: %f,: "), GetWorld()->GetTimeSeconds());
 }
 

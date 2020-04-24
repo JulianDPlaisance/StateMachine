@@ -3,6 +3,10 @@
 
 #include "StateObject.h"
 
+UStateObject* UStateObject::FSM_Init(UFiniteStateMachine* F)
+{
+	return nullptr;
+}
 //UFiniteStateMachine* UStateObject::FSM = nullptr;
 UStateObject::UStateObject()
 {

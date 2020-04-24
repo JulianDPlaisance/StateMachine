@@ -23,5 +23,8 @@ public:
 	virtual void Execute(UFiniteStateMachine* F) { return; }
 	virtual void End(UFiniteStateMachine* F) { return; }
 
+
+	static UStateObject* FSM_Init(UFiniteStateMachine* F);
+
 	
 };

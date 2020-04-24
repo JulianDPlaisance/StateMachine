@@ -3,10 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "StateObject.h"
 #include "Components/ActorComponent.h"
 #include "FiniteStateMachine.generated.h"
 
-class UStateObject;
+//class UStateObject;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class FSMTEST_API UFiniteStateMachine : public UActorComponent
@@ -18,30 +19,35 @@ public:
 	UFiniteStateMachine();
 
 	// Switches state without using an END state, used when running a state for the first time
-
-	UFUNCTION(BlueprintCallable, Category = "State Machine")
 	template <class T>
+	UFUNCTION()
 	void InitStatez()
 	{
-		State = T::FSM_Init(this);
-		//class UEatingState;
-		//UEatingState* St = NewObject<UEatingState>(this, TEXT("EatingState"));
-		//State = Cast<UStateObject>(St);
-		//State->LinkFSM(this);
+		State = NewObject<UStateObject>(this, *T);
 		State->Begin(this);
 	}
 
 	// Changes states by running End() of old state and Begin() of new state
 
-	UFUNCTION(BlueprintCallable, Category = "State Machine")
+
 	template<class T>
+	UFUNCTION()
 	void ChangeState()
 	{
-		State->End();
-		T* St = NewObject<T>(this, TEXT("EatingState"));
-		State = Cast<UStateObject>(St);
-		State->LinkFSM(this);
-		State->Begin();
+		State->End(this);
+		State = NewObject<UStateObject>(this, *T);
+		State->Begin(this);
+	}
+
+	UFUNCTION(BlueprintCallable, Category = "State Machine")
+	void ChangeState(TSubclassOf<UStateObject> StateClass)
+	{
+		State->End(this);
+		//typedef StateClass SC;
+		State = NewObject<UStateObject>(this, *StateClass);
+		//UStateObject* State = Cast<UStateObject>(NO);
+		State->Begin(this);
+		UE_LOG(LogTemp, Warning, TEXT("Change State"));
 	}
 
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
@@ -64,7 +70,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-private:
+protected:
 
 	UStateObject* State;
 
