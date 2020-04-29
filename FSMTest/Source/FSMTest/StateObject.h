@@ -9,7 +9,7 @@
 class UFiniteStateMachine;
 
 
-UCLASS()
+UCLASS(BlueprintType, Blueprintable)
 class FSMTEST_API UStateObject : public UObject
 {
 	GENERATED_BODY()

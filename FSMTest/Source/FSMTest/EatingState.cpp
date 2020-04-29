@@ -11,15 +11,16 @@ void UEatingState::Begin(UFiniteStateMachine* F)
 {
 
 	F->SetMessage(FText::FromString("Eating Stage"));
+	UE_LOG(LogTemp, Warning, TEXT("Entering Eating State"));
 
 }
 
-UStateObject* UEatingState::FSM_Init(UFiniteStateMachine* F)
+
+void UEatingState::End(UFiniteStateMachine* F)
 {
-	UEatingState* ES = NewObject<UEatingState>(F, TEXT("EatingState"));
-	UStateObject* StateObject = Cast<UStateObject>(ES);
-	return StateObject;
-	//return nullptr;
-}
 
+	F->SetMessage(FText::FromString("Eating Stage"));
+	UE_LOG(LogTemp, Warning, TEXT("Leaving Eating State"));
+
+}
 

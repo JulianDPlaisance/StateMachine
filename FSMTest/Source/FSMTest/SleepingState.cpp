@@ -9,14 +9,19 @@ USleepingState::USleepingState() {}
 void USleepingState::Begin(UFiniteStateMachine* F)
 {
 
-	F->SetMessage(FText::FromString("Sleeping Stage"));
+	UE_LOG(LogTemp, Warning, TEXT("Entering Sleeping Stage"));
+	F->SetMessage(FText::FromString("Entering Sleeping Stage"));
 
 }
 
-UStateObject* USleepingState::FSM_Init(UFiniteStateMachine* F)
+void USleepingState::End(UFiniteStateMachine* F)
 {
-	USleepingState* SS = NewObject<USleepingState>(F, TEXT("EatingState"));
-	UStateObject* StateObject = Cast<UStateObject>(SS);
-	return StateObject;
-	//return nullptr;
+
+	F->SetMessage(FText::FromString("Leaving Sleeping Stage"));
+	UE_LOG(LogTemp, Warning, TEXT("Leaving Sleeping Stage"));
+}
+
+void USleepingState::Execute(UFiniteStateMachine* F)
+{
+	UE_LOG(LogTemp, Warning, TEXT("ZZZ..."));
 }

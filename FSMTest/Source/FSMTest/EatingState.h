@@ -14,7 +14,7 @@
 class UFiniteStateMachine;
 
 
-UCLASS()
+UCLASS(BlueprintType, Blueprintable)
 class FSMTEST_API UEatingState : public UStateObject
 {
 	GENERATED_BODY()
@@ -22,6 +22,6 @@ class FSMTEST_API UEatingState : public UStateObject
 public:
 	UEatingState();
 	virtual void Begin(UFiniteStateMachine* F) override;
-	static UStateObject* FSM_Init(UFiniteStateMachine* F);
+	virtual void End(UFiniteStateMachine* F) override;
 
 };

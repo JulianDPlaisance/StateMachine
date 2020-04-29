@@ -21,9 +21,10 @@ public:
 	// Switches state without using an END state, used when running a state for the first time
 	template <class T>
 	UFUNCTION()
-	void InitStatez()
+	void InitState()
 	{
-		State = NewObject<UStateObject>(this, *T);
+		T* Temp = NewObject<T>(this);
+		State = Cast<UStateObject>(Temp);
 		State->Begin(this);
 	}
 
@@ -35,7 +36,10 @@ public:
 	void ChangeState()
 	{
 		State->End(this);
-		State = NewObject<UStateObject>(this, *T);
+	//	UStateObject* ParentT = static_cast<T*>(T);
+		T* Temp = NewObject<T>(this);
+		State = Cast<UStateObject>(Temp);
+		//State = NewObject<UStateObject>(this, T);
 		State->Begin(this);
 	}
 
@@ -43,11 +47,8 @@ public:
 	void ChangeState(TSubclassOf<UStateObject> StateClass)
 	{
 		State->End(this);
-		//typedef StateClass SC;
 		State = NewObject<UStateObject>(this, *StateClass);
-		//UStateObject* State = Cast<UStateObject>(NO);
 		State->Begin(this);
-		UE_LOG(LogTemp, Warning, TEXT("Change State"));
 	}
 
 	UFUNCTION(BlueprintCallable, Category = "State Machine")

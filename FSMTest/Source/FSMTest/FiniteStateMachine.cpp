@@ -25,7 +25,7 @@ UFiniteStateMachine::UFiniteStateMachine()
 void UFiniteStateMachine::BeginPlay()
 {
 	Super::BeginPlay();
-	InitStatez<USleepingState>();
+	InitState<UEatingState>();
 	// ...
 	
 }
@@ -35,11 +35,6 @@ void UFiniteStateMachine::BeginPlay()
 void UFiniteStateMachine::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-//	if (GetWorld()->GetTimeSeconds() > 2 && GetWorld()->GetTimeSeconds() < 3)
-	//{
-		//ChangeState<UEatingState>();
-	//}
-	// ...
-//	UE_LOG(LogTemp, Warning, TEXT("Time: %f,: "), GetWorld()->GetTimeSeconds());
+	State->Execute(this);
 }
 
