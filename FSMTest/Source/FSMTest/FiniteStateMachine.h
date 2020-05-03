@@ -57,6 +57,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
 	FText GetMessage() { return Message; }
 
+	UFUNCTION(BlueprintCallable, Category = "State Machine")
+		UStateObject* GetState() { return State; }
+
 	//friend class UEatingState;
 
 private:

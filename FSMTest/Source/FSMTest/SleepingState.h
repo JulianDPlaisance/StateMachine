@@ -15,8 +15,7 @@ class FSMTEST_API USleepingState : public UStateObject
 	GENERATED_BODY()
 public:
 	USleepingState();
-	virtual void Begin(UFiniteStateMachine* F) override;
-	virtual void End(UFiniteStateMachine* F) override;
-	virtual void Execute(UFiniteStateMachine* F) override;
-	
+	virtual void Begin_Implementation(UFiniteStateMachine* F) override;
+	virtual void Execute_Implementation(UFiniteStateMachine* F) override;
+	virtual void End_Implementation(UFiniteStateMachine* F) override;
 };

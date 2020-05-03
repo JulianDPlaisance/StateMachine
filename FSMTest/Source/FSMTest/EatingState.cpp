@@ -7,7 +7,7 @@
 UEatingState::UEatingState() {}
 
 
-void UEatingState::Begin(UFiniteStateMachine* F)
+void UEatingState::Begin_Implementation(UFiniteStateMachine* F)
 {
 
 	F->SetMessage(FText::FromString("Eating Stage"));
@@ -15,8 +15,13 @@ void UEatingState::Begin(UFiniteStateMachine* F)
 
 }
 
+void UEatingState::Execute_Implementation(UFiniteStateMachine* F)
+{
+	UE_LOG(LogTemp, Warning, TEXT("NOM NOM..."));
+}
 
-void UEatingState::End(UFiniteStateMachine* F)
+
+void UEatingState::End_Implementation(UFiniteStateMachine* F)
 {
 
 	F->SetMessage(FText::FromString("Eating Stage"));

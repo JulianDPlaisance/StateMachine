@@ -18,10 +18,20 @@ public:
 	UStateObject();
 
 	virtual ~UStateObject() {}
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "State Machine")
+		void Begin(UFiniteStateMachine* F);
 
-	virtual void Begin(UFiniteStateMachine* F) { return; }
-	virtual void Execute(UFiniteStateMachine* F) { return; }
-	virtual void End(UFiniteStateMachine* F) { return; }
+	virtual void Begin_Implementation(UFiniteStateMachine* F) { return; }
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "State Machine")
+		void Execute(UFiniteStateMachine* F);
+
+	virtual void Execute_Implementation(UFiniteStateMachine* F) { return; }
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "State Machine")
+		void End(UFiniteStateMachine* F);
+
+	virtual void End_Implementation(UFiniteStateMachine* F) { return; }
 
 
 	static UStateObject* FSM_Init(UFiniteStateMachine* F);
