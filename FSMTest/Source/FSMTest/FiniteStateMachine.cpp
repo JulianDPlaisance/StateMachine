@@ -4,7 +4,6 @@
 #include "FiniteStateMachine.h"
 #include "SleepingState.h"
 #include "EatingState.h"
-//class UEatingState;
 
 // Sets default values for this component's properties
 UFiniteStateMachine::UFiniteStateMachine()
