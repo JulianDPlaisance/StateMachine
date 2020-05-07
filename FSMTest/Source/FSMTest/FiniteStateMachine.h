@@ -16,7 +16,7 @@ class FSMTEST_API UFiniteStateMachine : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UFiniteStateMachine();
-
+	
 	// Switches state without using an END state, used when running a state for the first time
 	template <class T>
 	UFUNCTION()
@@ -27,21 +27,18 @@ public:
 		State->Begin(this);
 	}
 
-	// Changes states by running End() of old state and Begin() of new state
-
-
+	// C++ function, Changes states by running End() of old state and Begin() of new state
 	template<class T>
 	UFUNCTION()
 	void ChangeState()
 	{
 		State->End(this);
-	//	UStateObject* ParentT = static_cast<T*>(T);
 		T* Temp = NewObject<T>(this);
 		State = Cast<UStateObject>(Temp);
-		//State = NewObject<UStateObject>(this, T);
 		State->Begin(this);
 	}
 
+	//Blueprint function, Changes states by running End() of old state and Begin() of new state
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
 	void ChangeState(TSubclassOf<UStateObject> StateClass)
 	{
@@ -59,7 +56,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "State Machine")
 		UStateObject* GetState() { return State; }
 
-	//friend class UEatingState;
 
 private:
 	FText Message = FText::FromString("FSM.h");
