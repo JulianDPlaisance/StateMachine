@@ -4,21 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "StateObject.h"
-//#include "FiniteStateMachine.h"
 #include "EatingState.generated.h"
 
 /**
- * 
+ *
  */
-
-class UFiniteStateMachine;
-
 
 UCLASS(BlueprintType, Blueprintable)
 class FSMTEST_API UEatingState : public UStateObject
 {
 	GENERATED_BODY()
-
 public:
 	UEatingState();
 	virtual void Begin_Implementation(UFiniteStateMachine* F) override;

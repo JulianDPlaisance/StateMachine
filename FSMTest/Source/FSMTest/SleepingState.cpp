@@ -8,10 +8,8 @@ USleepingState::USleepingState() {}
 
 void USleepingState::Begin_Implementation(UFiniteStateMachine* F)
 {
-
-	UE_LOG(LogTemp, Warning, TEXT("Sleeping Stage"));
 	F->SetMessage(FText::FromString("Entering Sleeping Stage"));
-
+	//UE_LOG(LogTemp, Warning, TEXT("Sleeping Stage"));
 }
 
 void USleepingState::Execute_Implementation(UFiniteStateMachine* F)
@@ -21,7 +19,6 @@ void USleepingState::Execute_Implementation(UFiniteStateMachine* F)
 
 void USleepingState::End_Implementation(UFiniteStateMachine* F)
 {
-
 	F->SetMessage(FText::FromString("Sleeping Stage"));
-	UE_LOG(LogTemp, Warning, TEXT("Leaving Sleeping Stage"));
+	//UE_LOG(LogTemp, Warning, TEXT("Leaving Sleeping Stage"));
 }

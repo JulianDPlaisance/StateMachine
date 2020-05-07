@@ -7,7 +7,6 @@
 #include "Components/ActorComponent.h"
 #include "FiniteStateMachine.generated.h"
 
-//class UStateObject;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class FSMTEST_API UFiniteStateMachine : public UActorComponent

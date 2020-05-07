@@ -9,10 +9,8 @@ UEatingState::UEatingState() {}
 
 void UEatingState::Begin_Implementation(UFiniteStateMachine* F)
 {
-
 	F->SetMessage(FText::FromString("Eating Stage"));
-	UE_LOG(LogTemp, Warning, TEXT("Entering Eating State"));
-
+	//UE_LOG(LogTemp, Warning, TEXT("Entering Eating State"));
 }
 
 void UEatingState::Execute_Implementation(UFiniteStateMachine* F)
@@ -23,9 +21,7 @@ void UEatingState::Execute_Implementation(UFiniteStateMachine* F)
 
 void UEatingState::End_Implementation(UFiniteStateMachine* F)
 {
-
 	F->SetMessage(FText::FromString("Eating Stage"));
-	UE_LOG(LogTemp, Warning, TEXT("Leaving Eating State"));
-
+	//UE_LOG(LogTemp, Warning, TEXT("Leaving Eating State"));
 }
 
